@@ -36,7 +36,7 @@ public class MoveChecker {
         ArrayList<Cell> potentialMoves = findPotentialMoves(cellStatus);
         Cell opponentsMove = null;
         for (Cell cell : potentialMoves){
-                opponentsMove = opponentsMove == null
+                opponentsMove = cell == null
                         && cell.getMove().getScore() > opponentsMove.getMove().getScore()
                         ? cell
                         : opponentsMove;
@@ -77,7 +77,7 @@ public class MoveChecker {
             for (Cell cell : this.cells[i]) {
                 if (cell.getValue() == CellStatus.EMPTY){
                     if (cell.isLegal(colour, cells)){
-                        potentialMoves.remove(cell);
+                        potentialMoves.add(cell);
                     }
                 }
             }
