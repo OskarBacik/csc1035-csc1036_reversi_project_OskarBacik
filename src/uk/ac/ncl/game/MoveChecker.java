@@ -34,12 +34,12 @@ public class MoveChecker {
      */
     public Cell generateOpponent(CellStatus cellStatus) {
         ArrayList<Cell> potentialMoves = findPotentialMoves(cellStatus);
-        Cell opponentsMove = null;
+        Cell opponentsMove = potentialMoves.get(0);
+
         for (Cell cell : potentialMoves){
-                opponentsMove = cell == null
-                        && cell.getMove().getScore() > opponentsMove.getMove().getScore()
-                        ? cell
-                        : opponentsMove;
+            if (cell.getMove().getScore() > opponentsMove.getMove().getScore()) {
+                opponentsMove = cell;
+            }
         }
         return opponentsMove;
     }
