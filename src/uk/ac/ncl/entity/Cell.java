@@ -120,7 +120,7 @@ public class Cell {
 
         for (int[] dir : DIRS){
             int temp_score = 0;
-            Cell cell = IsOnBoard(this.getRow() + dir[1], this.getColumn() + dir[1]) ? cells[this.getRow() + dir[1]][this.getColumn() + dir[1]] : null;
+            Cell cell = IsOnBoard(this.getRow() + dir[0], this.getColumn() + dir[1]) ? cells[this.getRow() + dir[0]][this.getColumn() + dir[1]] : null;
             if (cell != null
                     && cell.getValue() != CellStatus.EMPTY
                     && cell.getValue() == opponent) {
@@ -151,6 +151,6 @@ public class Cell {
      * @return true if the cell index is inside board boundaries
      */
     private boolean IsOnBoard(int row, int column){
-        return 1 <= column &&  column < BOARD_SIZE && 0 <=row && row < BOARD_SIZE;
+        return 1 <= column &&  column < BOARD_SIZE && 1 <=row && row < BOARD_SIZE;
     }
 }
