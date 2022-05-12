@@ -9,6 +9,7 @@ import uk.ac.ncl.game.MoveChecker;
 import javax.swing.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static uk.ac.ncl.Constants.BOARD_SIZE;
@@ -69,7 +70,7 @@ class MoveCheckerTest {
     @Test
     void findPotentialMoves() {
         ArrayList<Cell> grayCells = moveChecker.findPotentialMoves(CellStatus.DARK);
-        assertFalse(grayCells.size() == 4);
+        assertTrue(grayCells.size() == 4);
         assertTrue(grayCells.contains(cells[2][4]));
         assertTrue(grayCells.contains(cells[3][5]));
         assertTrue(grayCells.contains(cells[4][2]));
